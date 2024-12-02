@@ -29,7 +29,7 @@ export const registration = async (req, res, next) => {
 
     await user.save();
 
-    res.status(201).json({ message: 'User registered successfully' });
+    return res.status(201).json({ message: 'User registered successfully' });
   } catch (err) {
     next(err); // Pass to error handling middleware
   }
@@ -59,7 +59,7 @@ export const login = async (req, res, next) => {
     );
 
     // 4. Send token to the client
-    res.json({ token });
+    return res.json({ token });
   } catch (err) {
     next(err); // Pass to error handling middleware
   }

@@ -29,7 +29,7 @@ export const processSubscriptions = async (req, res, next) => {
       await user.save();
     }
 
-    res.json({ message: 'Subscriptions processed successfully' });
+    return res.json({ message: 'Subscriptions processed successfully' });
   } catch (err) {
     logger.error('Error processing subscriptions:', err);
     next(err);

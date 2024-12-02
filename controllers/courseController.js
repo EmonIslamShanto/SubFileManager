@@ -16,7 +16,7 @@ export const createCourse = async (req, res, next) => {
     await course.save();
 
     // Respond with the created course
-    res.status(201).json(course);
+    return res.status(201).json(course);
   } catch (err) {
     next(err);
   }
@@ -71,7 +71,7 @@ export const updateCourse = async (req, res, next) => {
     }
 
     const updatedCourse = await course.save();
-    res.json(updatedCourse);
+    return res.json(updatedCourse);
   } catch (err) {
     next(err);
   }
